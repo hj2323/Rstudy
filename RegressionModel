@@ -1,0 +1,101 @@
+
+###단순회귀
+> weight<-c(60,72,57,90,95,72)
+> height<-c(1.75,1.80,1.65,1.90,1.74,1.91)
+> bmi<-weight/height^2
+> bmi
+[1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630
+> mean(weight)
+[1] 74.33333
+> sd(weight0)
+Error in is.data.frame(x) : object 'weight0' not found
+> sd(weight)
+[1] 15.42293
+> t.test(bmi, mu=22.5)
+
+	One Sample t-test
+
+data:  bmi
+t = 0.34488, df = 5, p-value = 0.7442
+alternative hypothesis: true mean is not equal to 22.5
+95 percent confidence interval:
+ 18.41734 27.84791
+sample estimates:
+mean of x 
+ 23.13262 
+
+> #vector:character vertors and logical vectors
+> c("Huey", "Dewey", "Loule")
+[1] "Huey"  "Dewey" "Loule"
+> c(T,T,F,T)
+[1]  TRUE  TRUE FALSE  TRUE
+> bmi
+[1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630
+> bmi>25
+[1] FALSE FALSE FALSE FALSE  TRUE FALSE
+> cat(c("Huey", "Dewey", "Loule"))
+Huey Dewey Loule
+> cat("Huey", "Dewey", "Loule", "\n")
+Huey Dewey Loule 
+> #To get the system prompt onto the next line
+> #결측치는 NA로 표시
+> nwd(nwd>0.9)=99
+Error in nwd(nwd > 0.9) = 99 : object 'nwd' not found
+> market = read.table("c:/data/reg/market-1.txt", header=T)
+> head(market)
+  NUMBER  X  Y
+1      1  4  9
+2      2  8 20
+3      3  9 22
+4      4  8 15
+5      5  8 17
+6      6 12 30
+> plot(market$X,market$Y, xlab="광고료", ylab="총판매액", pch=19 )
+> title("광고료와 판매액의 산점도")
+> market.lm=lm(Y~X, data=market)
+> summary(market.lm)
+
+Call:
+lm(formula = Y ~ X, data = market)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-3.600 -1.502  0.813  1.128  4.617 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -2.2696     3.2123  -0.707 0.499926    
+X             2.6087     0.3878   6.726 0.000149 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.631 on 8 degrees of freedom
+Multiple R-squared:  0.8497,	Adjusted R-squared:  0.831 
+F-statistic: 45.24 on 1 and 8 DF,  p-value: 0.0001487
+
+> abline(market.lm)
+> identify(market$X, market$Y)
+경고: 가장 가까운 포인트는 이미 확인되었습니다
+경고: 가장 가까운 포인트는 이미 확인되었습니다
+경고: 가장 가까운 포인트는 이미 확인되었습니다
+[1]  1  4  5  9 10
+> market.lm=lm(Y~X, data=market)
+> identify(market$X, market$Y)
+[1] 2 7
+#names: show all variables
+> names(market.lm)
+ [1] "coefficients"  "residuals"     "effects"      
+ [4] "rank"          "fitted.values" "assign"       
+ [7] "qr"            "df.residual"   "xlevels"      
+[10] "call"          "terms"         "model" 
+#잔차: residuals
+#관찰값의 합= 추정값의 합
+> resid = market.lm$residuals
+> fitted = market.lm$fitted
+> sum(resid)
+[1] 0
+> #sum of residuals = 0
+> sum(fitted)#추정값의 합
+[1] 186
+> sum(market$Y)#관찰값의 합
