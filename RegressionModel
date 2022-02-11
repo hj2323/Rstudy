@@ -99,3 +99,21 @@ F-statistic: 45.24 on 1 and 8 DF,  p-value: 0.0001487
 > sum(fitted)#추정값의 합
 [1] 186
 > sum(market$Y)#관찰값의 합
+> #평균은 적합된 회귀선상에 있음
+> plot(market$X,market$Y, xlab="광고료", ylab="총판매액", pch=19 )
+> title("광고료와 판매액의 산점도")
+> abline(market.lm)
+> xbar = mean(market$X)
+> ybar = mean(market$Y)
+> xbar
+[1] 8
+> ybar
+[1] 18.6
+> points(xbar, ybar, pch=17, cex=2.0, col="RED")
+> text(xbar, ybar, "(8.85,19.36)")
+> fx <- "Y-hat = 0.328+2.14*X"
+> text(locator(1), fx)
+Error in text.default(locator(1), fx) : 좌표가 제공되지 않았습니다
+> 
+> text(locator(1), fx)
+> #locator(1):내가 지정한 임의의 지점에 마우스를 찍으면 표시가 된다.
