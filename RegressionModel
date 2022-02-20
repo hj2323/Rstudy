@@ -117,3 +117,4 @@ Error in text.default(locator(1), fx) : 좌표가 제공되지 않았습니다
 > 
 > text(locator(1), fx)
 > #locator(1):내가 지정한 임의의 지점에 마우스를 찍으면 표시가 된다.
+anova(market.lm)
