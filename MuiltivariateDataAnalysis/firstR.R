@@ -1,1 +1,1 @@
-print(Hello MuiltivariateDataAnalysis!)
+print("Hello MuiltivariateDataAnalysis!")
