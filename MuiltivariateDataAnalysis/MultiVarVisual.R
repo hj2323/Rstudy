@@ -8,12 +8,13 @@
 ####################################
 ###단변량 그래프
 survey = read.csv('/Users/hj1/Desktop/mva/survey.csv')
+survey = read.csv("C:\data\mva\survey.csv")
 # R 막대그림 및 원그림
-edu_tb = table(survey$edu)
+edu_tb = table(survey$edu) # table 빈도표를 구하는 명령
 edu_tb
 rownames(edu_tb) = c("무학", "초졸", "중졸", "고졸", "대졸")
 barplot(edu_tb)
-dev.new()
+dev.new() # new graphic device
 pie(edu_tb.main="교육정도 원그림")
 dev.off()
 # R 겹친막대그림
@@ -58,7 +59,7 @@ head(USairpollution, 3)
 x=USairpollution[,c(3,4)]
 bvbox(x, xlab="manu", ylab="popul", pch=19)
 title("Bivariate Boxplot")
-identify(x)
+identify(x) # 점찍어서 interactive하게 확인 가능
 rownames(x)[c(7,9,14,30)]
 
 # R Bubble plot
