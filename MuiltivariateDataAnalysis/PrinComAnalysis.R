@@ -5,7 +5,10 @@
 install.packages("HSAUR2")
 library(HSAUR2)
 data(heptathlon)
-summary(heptathlon)
+summary(heptathlon)# 기술통계량
+#boxplot등 그래프 그려서 데이터 분포 확인하기 
+write.csv(heptathlon, file='C:/data/mva/heptathlon.csv')
+##python에서도 자료를 쓰려고 저장한 것
 write.csv(heptathlon, file='/Users/hj1/Desktop/mva/heptathlon.csv')
 
 # 2. 자료 변형하기
@@ -13,6 +16,7 @@ heptathlon$hurdles = max(heptathlon$hurdles) - heptathlon$hurdles
 heptathlon$run200m = max(heptathlon$run200m) - heptathlon$run200m
 heptathlon$run800m = max(heptathlon$run800m) - heptathlon$run800m
 head(heptathlon)
+boxplot(heptathlon)
 
 # 3. 주성분 분석 실행
 hep_data = heptathlon[,-8]
