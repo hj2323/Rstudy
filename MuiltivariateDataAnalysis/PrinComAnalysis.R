@@ -6,6 +6,7 @@ install.packages("HSAUR2")
 library(HSAUR2)
 data(heptathlon)
 summary(heptathlon)# 기술통계량
+head(heptathlon)
 #boxplot등 그래프 그려서 데이터 분포 확인하기 
 write.csv(heptathlon, file='C:/data/mva/heptathlon.csv')
 ##python에서도 자료를 쓰려고 저장한 것

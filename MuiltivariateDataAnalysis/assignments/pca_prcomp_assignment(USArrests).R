@@ -6,11 +6,10 @@ data("USArrests")
 head(USArrests)
 summary(USArrests)
 boxplot(USArrests)
-write.csv(USArrests, file='C:/data/mva/USArrests.csv')
 
 # 2. 주성분 분석 실행
-# Principal component analysis using principal ( using eigen)
-usarr_pca = princomp(USArrests, cor=T, scores=T)
+# Principal component analysis using prcomp (using SVD)
+usarr_pca =  prcomp(USArrests, scale=TRUE)
 names(usarr_pca)
 usarr_pca
 
@@ -31,7 +30,7 @@ plot(cumsum(usarr_var_ratio), type='b', pch=19, xlab='Component',
 title('Variance Explained')
 
 # 6. 주성분 계수
-round(usarr_pca$loadings[,c(1:2)], 3)
+round(usarr_pca$rotation[, c(1:2)], 3)
 
 # 7. 주성분 점수 및 행렬도(biplot)
 usarr_pca$scores[c(1:7), c(1:2)]
