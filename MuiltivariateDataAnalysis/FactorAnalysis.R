@@ -1,6 +1,6 @@
 ####################################################
 ### 인자 분석(factor analysis)
-### Positive Health Inventory(PHI)
+### dataset : Positive Health Inventory(PHI)
 ### 주성분 인자법(principal factor method)
 ###실제로 인자분석을 이행할때는 그 분야에 대해 잘 알고 있어야 한다. 변수에대해서도 잘알고 분야에 대한 지식이 있어야 결과를 분석할 수 있다. 
 ####################################################
