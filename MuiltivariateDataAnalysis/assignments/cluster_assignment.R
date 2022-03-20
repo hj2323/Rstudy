@@ -1,6 +1,5 @@
 ####################################################
-### 군집 분석(cluster analysis)
-### 과제 
+### 군집 분석(cluster analysis)과제 
 ####################################################
 ### 1. 데이터 파일 읽기
 mall = read.csv('C:/data/mva/mall_customer.csv', header=T, row.names=1)
