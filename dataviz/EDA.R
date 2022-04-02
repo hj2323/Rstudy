@@ -28,3 +28,12 @@ text(0,0, "총 300석")
 ### barplot
 barplot(sort.df, col=slices, main="막대그래프")
 barplot(pie.vote, col=c("red3", "blue", "green3", "magenta", "yellow"), main="막대그래프")
+
+
+### hist
+# 외부파일을 읽어 데이터프레임을 만들기
+담즙과포화비율 = read.table("C:\\chj\\Rstudy\\dataviz\\담즙과포화비율.txt", header=T)
+담즙과포화비율
+attach(담즙과포화비율)
+str(담즙과포화비율)
+# 담즙과포화비율 - 자료의 크기

@@ -13,6 +13,8 @@ abline(lmobj, col=5)
 
 
 # 2.ggplot2 사용
+install.packages("ggplot2")
+library(ggplot2)
 ggplot(data=dat, mapping = aes(x=facebook, y=sales)) + geom_point() + 
    stat_smooth(method =lm)
 
