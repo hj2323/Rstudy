@@ -1,5 +1,5 @@
 ########################################
-# multiple regression model 중 회귀 모형 적합하기
+# multiple regression model 중회귀 모형 적합하기
 # dataset: gym health data
 # author: hyeji choi
 # purpose : midterm assignment
@@ -11,6 +11,8 @@ install.packages("xlsx")
 library(xlsx)
 excel <- "p162.csv"
 gym <- read.xlsx(excel, 1)
+
+gym = read.table("c:/data/reg/forbes.txt", header=T)
 head(gym)
 
 # 기술통계량 및 상관계수 보기
