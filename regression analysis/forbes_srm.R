@@ -9,7 +9,7 @@
 forbes = read.table("c:/data/reg/forbes.txt", header=T)
 head(forbes, 3)
 attach(forbes)
-Lpress = 100 * log(10*press, base=10)
+Lpress = 100 * log(10*forbes$press, base=10)
 Lpress
 plot(temp, Lpress, pch=19)
 
@@ -29,7 +29,7 @@ plot(temp, forbes.lm$residuals, pch=19)
 abline(h=0, lty=2)
 
 # 추정값의 신뢰대 그리기
-p.x = data.frame(temp=c(1, 45))
+p.x = data.frame(temp=c(1, 17))
 pc=predict(forbes.lm, int="c", newdata=p.x)
 pred.x = p.x$temp
 plot(temp, Lpress, ylim = range(Lpress, pc))
