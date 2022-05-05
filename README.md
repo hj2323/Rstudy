@@ -1,5 +1,4 @@
 # R study
-R Computing
 ==========
 🌟 trying to organize R knowledge i learned from knou data science course🌟 
 
