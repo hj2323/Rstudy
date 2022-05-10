@@ -1,5 +1,5 @@
 ####################################
-# Ensemble with wine data
+# Ensemble with wine data( classification )
 ####################################
 setwd('/Users/hj1/Desktop/R/Rstudy/datamining')
 install.packages("adabag")
