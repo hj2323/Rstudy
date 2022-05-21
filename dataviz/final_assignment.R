@@ -16,17 +16,18 @@ summary(data)
 sort.sex = sort(table(data$Sex))
 sort.treat = sort(table(data$Treatment))
 sort.improved = sort(table(data$Improved))
-par(mfrow=c(1,3))
+par(mfrow=c(1,2))
 pie(sort.sex, radius=1, main="성별")
 pie(sort.treat, radius=1, main="치료제 투약 여부")
 pie(sort.improved, radius=1, main="치료결과")
 
 
 # plot() 사용 그리기
+par(mfrow=c(1,2))
 plot(data$Treatment, data$Improved, pch=19)
 plot(data$Sex, data$Improved, pch=19)
 
 # 모자이크 플롯 그리기
 mosaicplot(~ Treatment+Improved, data=Arthritis, color=c("grey", "blue"))
-mosaicplot(~ +Improved, data=Arthritis, color=c("grey", "blue"))
+mosaicplot(~ Sex+Improved, data=Arthritis, color=c("grey", "blue"))
 
