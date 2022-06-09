@@ -31,3 +31,16 @@ plot(data$Sex, data$Improved, pch=19)
 mosaicplot(~ Treatment+Improved, data=Arthritis, color=c("grey", "blue"))
 mosaicplot(~ Sex+Improved, data=Arthritis, color=c("grey", "blue"))
 
+
+### 3. 뉴욕의 대기질에 관한 데이터셋, 
+
+# 산점도 행렬 그리기
+airquality
+data(airquality)
+attach(airquality)
+pairs(airquality[1:4], main="AirQuality")
+
+pairs(airquality[1:4], main="AirQuality", pch=21, 
+      bg=c("red","yellow","green","cyan","blue")[unclass(airquality$Month)])
+
+
