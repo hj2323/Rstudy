@@ -1,4 +1,6 @@
-library(neralnet)
+install.packages('neuralnet')
+library(neuralnet)
+setwd("C:\\chj\\Rstudy\\datamining")
 wine = read.csv("winequalityCLASS.csv", header=TRUE)
 # Set a critical value
 cutoff = 0.5
@@ -8,9 +10,9 @@ min1 = apply(wine, 2, min)
 gdat = scale(wine, center = min1, scale = max1 - min1)
 gadt = as.data.frame(gdat)
 gn = names(gdat)
-f = as.formula(paste("quality~", paste(gn[!gn %in% "quality"], collapse = " + ")))
+f = as.formula(paste("quality~.", paste(gn[!gn %in% "quality"], collapse = " + ")))
 set.seeed(1234)
-fit.nn = neuarlnet(f, data=gdat, hidden=c(2,1), linear.output=F)
+fit.nn = neuralnet(f, data=gdat, hidden=c(2,1), linear.output=F)
 plot(fit.nn)
 # Prediction
 p.nn = predict(fit.nn, gdat)
