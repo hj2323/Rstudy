@@ -1,7 +1,8 @@
 ####################################
 # Ensemble with wine data( classification )
 ####################################
-setwd('/Users/hj1/Desktop/R/Rstudy/datamining')
+#setwd('/Users/hj1/Desktop/R/Rstudy/datamining')
+setwd("C:\\chj\\Rstudy\\datamining")
 install.packages("adabag")
 #Importing data
 wine = read.csv("winequalityCLASS.csv", header=TRUE)
@@ -15,17 +16,20 @@ library(adabag)
 set.seed(1234)
 my.control = rpart.control(xval=0, cp=0, minsplit=5)
 bag.wine = bagging(quality~., data=wine, mfinal=100, control=my.control)
+bag.wine
+#par(mfrow=c(1,1))
 
 # Variable importance
 print(bag.wine$importance)
 importanceplot(bag.wine)
 
 # Error vs. number of trees
-evol.wine = errorevol(evol.wine)
+evol.wine = errorevol(bag.wine, newdata =wine)
+plot.errorevol(evol.wine)
 
 # Making predictions
 prob.bag.wine = predict.bagging(bag.wine, newdata=wine)$prob
-head(prob.gab.wine,5)
+head(prob.bag.wine,5)
 cutoff = 0.5 #cutoff
 yhat.bag.wine = ifelse(prob.bag.wine[,2] > cutoff, 1, 0)
 
@@ -65,6 +69,7 @@ tab[1,1]/sum(tab[1,])   #sepcificity
 
 
 ### Random Forest
+install.packages("randomForest")
 library(randomForest)
 set.seed(1234)
 rf.wine = randomForest(quality~., data=wine, ntree=100, mtry=5, importance=T, na.action=na.omit)
